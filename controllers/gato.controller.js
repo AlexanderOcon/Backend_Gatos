@@ -2,11 +2,11 @@ import db from "../firebase.js";
 
 export const registrarGato = async (req, res) => {
   try {
-    const { nombre, edad, peso, raza } = req.body;
+    const { nombre, edad, peso, raza, propietario } = req.body;
 
-    if (!nombre || !edad || !peso || !raza) {
+    if (!nombre || !edad || !peso || !raza || !propietario) {
       return res.status(400).json({
-        mensaje: "Todos los campos son obligatorios: nombre, edad, peso y raza.",
+        mensaje: "Todos los campos son obligatorios: nombre, edad, peso, raza y propietario.",
       });
     }
 
@@ -16,6 +16,7 @@ export const registrarGato = async (req, res) => {
       edad: Number(edad),
       peso: Number(peso),
       raza,
+      propietario,
       fecha: new Date().toISOString(),
     });
 
