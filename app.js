@@ -1,7 +1,6 @@
 import express from "express";
 import cors from "cors";  //Para que el frontend pueda llamar
 import gatoRoutes from "./routes/gato.routes.js";
-import propietarioRoutes from "./routes/propietario.routes.js";
 
 
 const app = express();
@@ -12,7 +11,6 @@ app.use(express.json());
 
 // Rutas
 app.use(gatoRoutes);
-app.use(propietarioRoutes);
 
 // 404
 app.use((req, res) => {
